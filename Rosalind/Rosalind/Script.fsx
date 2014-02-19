@@ -59,7 +59,7 @@ let problem_5 () =
     let parseFASTA (data:string) =
         data.Split('>') 
         |> Seq.filter (fun x -> x.StartsWith "Rosalind")
-        |> Seq.map (fun x -> x.[..12], x.[13..].Trim())
+        |> Seq.map (fun x -> x.[..12], (x.[13..]).Replace("\010",""))
 
     let input = ">Rosalind_6404
 CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC
@@ -74,7 +74,7 @@ TGGGAACCTGCGGGCAGTAGGTGGAAT"
     let output = 
         input 
         |> parseFASTA 
-        |> Seq.map (fun (id,dna) -> id, gcContent dna) 
+        |> Seq.map (fun (id,dna) -> id, 100. * gcContent dna) 
         |> Seq.maxBy snd 
     
-    printfn "%s, %f" (fst output) (snd output)
+    fst output = "Rosalind_0808" && abs (snd output - 60.919540) < 0.001
