@@ -1,4 +1,7 @@
-﻿// http://rosalind.info/problems/dna/
+﻿#load "Rosalind.fs"
+open Rosalind.Tools
+
+// http://rosalind.info/problems/dna/
 let problem_1 () =
 
     let update (a,c,g,t) x =
@@ -124,10 +127,47 @@ let problem_6 () =
 //    let k,m,n = 2, 2, 2
 //    let pop = [ (Homozigous(Dominant)),  (float k); Heterozigous,            (float m); (Homozigous(Recessive)), (float n) ] |> Map.ofList
 
+
+// http://rosalind.info/problems/subs/
+let problem_8 () =
+
+    let codons = "UUU F      CUU L      AUU I      GUU V
+UUC F      CUC L      AUC I      GUC V
+UUA L      CUA L      AUA I      GUA V
+UUG L      CUG L      AUG M      GUG V
+UCU S      CCU P      ACU T      GCU A
+UCC S      CCC P      ACC T      GCC A
+UCA S      CCA P      ACA T      GCA A
+UCG S      CCG P      ACG T      GCG A
+UAU Y      CAU H      AAU N      GAU D
+UAC Y      CAC H      AAC N      GAC D
+UAA Stop   CAA Q      AAA K      GAA E
+UAG Stop   CAG Q      AAG K      GAG E
+UGU C      CGU R      AGU S      GGU G
+UGC C      CGC R      AGC S      GGC G
+UGA Stop   CGA R      AGA R      GGA G
+UGG W      CGG R      AGG R      GGG G "
+
+    let map = 
+        codons 
+        |> parseWords 
+        |> Seq.toArray 
+        |> pairs 
+        |> Map.ofSeq
+
+    let translate (dna:string) =
+        dna |> chunks 3 |> Seq.map (fun x -> map.[x]) |> Seq.takeWhile (fun t -> t <> "Stop") |> String.concat ""
+
+    let input = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
+    let output = "MAMAPRTEINSTRING"
+    translate input = output
+
+
+
 // http://rosalind.info/problems/fibd/
 type Pop = bigint list
 
-let problem_10 () =
+let problem_9 () =
 
     let newborn (pop:Pop) (k:bigint) =
         let rec birth c l =
