@@ -1,5 +1,7 @@
 ﻿namespace Rosalind
 
+open System.IO
+
 module Tools =
 
     open System
@@ -19,3 +21,11 @@ module Tools =
         |> matchWords.Matches
         |> Seq.cast<Match>
         |> Seq.map (fun m -> m.Value)
+
+    type FASTA_DNA = { Description:string; DNA:string }
+
+    let parseFASTA (data:string) =
+        data.Split('>') 
+        |> fun x -> x.[1..]
+        |> Array.map (fun line -> line.Split('\n'))
+        |> Array.map (fun line -> line.[0], line.[1..] |> String.concat "")
