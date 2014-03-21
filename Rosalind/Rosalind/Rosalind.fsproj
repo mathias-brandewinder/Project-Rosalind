@@ -50,7 +50,15 @@
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
     <Compile Include="Rosalind.fs" />
-    <None Include="Script.fsx" />
+    <None Include="01-DNA.fsx" />
+    <None Include="02-RNA.fsx" />
+    <None Include="03-REVC.fsx" />
+    <None Include="04-FIB.fsx" />
+    <None Include="05-GC.fsx" />
+    <None Include="06-HAMM.fsx" />
+    <None Include="07-SUBS.fsx" />
+    <None Include="08-CONS.fsx" />
+    <None Include="09-FIBD.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
