@@ -59,6 +59,7 @@
     <None Include="07-SUBS.fsx" />
     <None Include="08-CONS.fsx" />
     <None Include="09-FIBD.fsx" />
+    <None Include="10-IPRB.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
