@@ -1,7 +1,7 @@
 ﻿//http://rosalind.info/problems/iprb/
 
-let input = "27 17 25" //"2 2 2"
-let output = "0.767050298380222"
+let input = "2 2 2"
+let output = "0.78333"
 
 type Allele = 
     | Dominant
@@ -67,6 +67,7 @@ let solve (input:string) =
     |> List.sum
     |> string
 
+// failing because of rounding
 solve input = output
 
 //"27 17 25"
