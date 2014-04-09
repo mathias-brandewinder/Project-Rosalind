@@ -56,10 +56,11 @@
     <None Include="04-FIB.fsx" />
     <None Include="05-GC.fsx" />
     <None Include="06-HAMM.fsx" />
-    <None Include="07-SUBS.fsx" />
-    <None Include="08-CONS.fsx" />
-    <None Include="09-FIBD.fsx" />
-    <None Include="10-IPRB.fsx" />
+    <None Include="07-IPRB.fsx" />
+    <None Include="08-PROT.fsx" />
+    <None Include="09-SUBS.fsx" />
+    <None Include="10-CONS.fsx" />
+    <None Include="11-FIBD.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
